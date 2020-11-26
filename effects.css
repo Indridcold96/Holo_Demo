@@ -1,210 +1,271 @@
 html {
- background-color: #000;
- display: flex;
- align-items: center;
- justify-content: center;
- height: 100vh;
+  background-color: #000;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  height: 100vh;
 }
 
-$holo-color: #00FCFC;
-$width: 150px;
-$height: 5px;
-
- .filter {
-  animation-name: filter;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  
-  perspective: 200px;
-  transform-style: preserve-3d;
+.filter {
+  -webkit-animation-name: filter;
+          animation-name: filter;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-perspective: 200px;
+          perspective: 200px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
 .null {
   position: absolute;
-  transform: translate3d(200px, 200px, 0);
-  
-  animation-name: distort;
-  animation-duration: 6.1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  -webkit-transform: translate3d(200px, 200px, 0);
+          transform: translate3d(200px, 200px, 0);
+  -webkit-animation-name: distort;
+          animation-name: distort;
+  -webkit-animation-duration: 6.1s;
+          animation-duration: 6.1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
+
 .card {
- // when holo effect is inside of you parent class
- position: relative;
- //
- width: 200px;
- height: 170px;
- margin-top: 70px;
- background-image: url(http://pngimg.com/uploads/gun/gun_PNG1367.png);
- background-size: contain;
- background-repeat: no-repeat;
- animation: float 1s infinite alternate, flicker 50ms infinite;
- 
- // apply this style if you want to put your holo inside
- .holo {
+  position: relative;
+  width: 200px;
+  height: 170px;
+  margin-top: 70px;
+  background-image: url(http://pngimg.com/uploads/gun/gun_PNG1367.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-animation: float 1s infinite alternate, flicker 50ms infinite;
+          animation: float 1s infinite alternate, flicker 50ms infinite;
+}
+.card .holo {
   position: absolute;
   bottom: 0;
- }
- 
 }
 
 .holo {
- position: relative;
- z-index: 2;
- // apply this style if you want to put your holo inside
- // position: absolute;
- // bottom: 0;
- //
- width: $width;
- height: $height;
- margin: -5px auto 0;
- background-color: rgba($holo-color, .35);
- border-radius: 100%;
- filter: blur(2.5px);
- transform: perspective(100px) rotateX(-30deg);
- transform-style: preserve-3d;
- animation: holographic 1.5s infinite alternate;
- backface-visibility: hidden;
- 
- &:after {
+  position: relative;
+  z-index: 2;
+  width: 150px;
+  height: 5px;
+  margin: -5px auto 0;
+  background-color: rgba(0, 252, 252, 0.35);
+  border-radius: 100%;
+  -webkit-filter: blur(2.5px);
+          filter: blur(2.5px);
+  -webkit-transform: perspective(100px) rotateX(-30deg);
+          transform: perspective(100px) rotateX(-30deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: holographic 1.5s infinite alternate;
+          animation: holographic 1.5s infinite alternate;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.holo:after {
   position: absolute;
   left: -10px;
   right: -10px;
   content: "";
   height: 10px;
-  background-color: rgba($holo-color, .5);
+  background-color: rgba(0, 252, 252, 0.5);
   border-radius: 100%;
-  filter: blur(2.5px);
- }
- 
- + .holo {
-  animation-duration: .75s;
+  -webkit-filter: blur(2.5px);
+          filter: blur(2.5px);
+}
+.holo + .holo {
+  -webkit-animation-duration: .75s;
+          animation-duration: .75s;
   opacity: .5;
- }
+}
+
+@-webkit-keyframes float {
+  from {
+    will-change: unset;
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  to {
+    will-change: transform;
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
 }
 
 @keyframes float {
- from {
-  will-change: unset;
-  transform: translateY(-10px)
- } to {
-  will-change: transform;
-  transform: translateY(-15px)
- }
+  from {
+    will-change: unset;
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  to {
+    will-change: transform;
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
 }
-
-@keyframes flicker {
+@-webkit-keyframes flicker {
   0% {
     opacity: 0.3;
   }
-  
   20% {
     opacity: 0.2;
   }
-  
   30% {
     opacity: 0.3;
   }
-  
   60% {
     opacity: 0.2;
   }
-  
   100% {
     opacity: 0.3;
   }
 }
-
-@keyframes filter {
-  0% { 
-    filter: url(#f0); 
-    -webkit-filter: url(#f0); 
+@keyframes flicker {
+  0% {
+    opacity: 0.3;
   }
-  10% { 
-    filter: url(#f1); 
-    -webkit-filter: url(#f1); 
+  20% {
+    opacity: 0.2;
   }
-  20% { 
-    filter: url(#f2); 
-    -webkit-filter: url(#f2); 
+  30% {
+    opacity: 0.3;
   }
-  30% { 
-    filter: url(#f3); 
-    -webkit-filter: url(#f3); 
+  60% {
+    opacity: 0.2;
   }
-  40% { 
-    filter: url(#f4); 
-    -webkit-filter: url(#f4); 
-  }
-  50% { 
-    filter: url(#f5); 
-    -webkit-filter: url(#f5); 
-  }
-  60% { 
-    filter: url(#f6); 
-    -webkit-filter: url(#f6); 
-  }
-  70% { 
-    filter: url(#f7); 
-    -webkit-filter: url(#f7); 
-  }
-  75% { 
-    filter: url(#f0); 
-    -webkit-filter: url(#f0); 
-  }
-  80% { 
-    filter: url(#f8); 
-    -webkit-filter: url(#f8); 
-  }
-  90% { 
-    filter: url(#f9); 
-    -webkit-filter: url(#f9); 
-  }
-  100% { 
-    filter: url(#f10); 
-    -webkit-filter: url(#f10); 
+  100% {
+    opacity: 0.3;
   }
 }
-
+@-webkit-keyframes filter {
+  0% {
+    filter: url(#f0);
+    -webkit-filter: url(#f0);
+  }
+  10% {
+    filter: url(#f1);
+    -webkit-filter: url(#f1);
+  }
+  20% {
+    filter: url(#f2);
+    -webkit-filter: url(#f2);
+  }
+  30% {
+    filter: url(#f3);
+    -webkit-filter: url(#f3);
+  }
+  40% {
+    filter: url(#f4);
+    -webkit-filter: url(#f4);
+  }
+  50% {
+    filter: url(#f5);
+    -webkit-filter: url(#f5);
+  }
+  60% {
+    filter: url(#f6);
+    -webkit-filter: url(#f6);
+  }
+  70% {
+    filter: url(#f7);
+    -webkit-filter: url(#f7);
+  }
+  75% {
+    filter: url(#f0);
+    -webkit-filter: url(#f0);
+  }
+  80% {
+    filter: url(#f8);
+    -webkit-filter: url(#f8);
+  }
+  90% {
+    filter: url(#f9);
+    -webkit-filter: url(#f9);
+  }
+  100% {
+    filter: url(#f10);
+    -webkit-filter: url(#f10);
+  }
+}
+@keyframes filter {
+  0% {
+    filter: url(#f0);
+    -webkit-filter: url(#f0);
+  }
+  10% {
+    filter: url(#f1);
+    -webkit-filter: url(#f1);
+  }
+  20% {
+    filter: url(#f2);
+    -webkit-filter: url(#f2);
+  }
+  30% {
+    filter: url(#f3);
+    -webkit-filter: url(#f3);
+  }
+  40% {
+    filter: url(#f4);
+    -webkit-filter: url(#f4);
+  }
+  50% {
+    filter: url(#f5);
+    -webkit-filter: url(#f5);
+  }
+  60% {
+    filter: url(#f6);
+    -webkit-filter: url(#f6);
+  }
+  70% {
+    filter: url(#f7);
+    -webkit-filter: url(#f7);
+  }
+  75% {
+    filter: url(#f0);
+    -webkit-filter: url(#f0);
+  }
+  80% {
+    filter: url(#f8);
+    -webkit-filter: url(#f8);
+  }
+  90% {
+    filter: url(#f9);
+    -webkit-filter: url(#f9);
+  }
+  100% {
+    filter: url(#f10);
+    -webkit-filter: url(#f10);
+  }
+}
+@-webkit-keyframes holographic {
+  from {
+    will-change: box-shadow;
+    box-shadow: 0 -75px 5px rgba(0, 252, 252, 0.15), 0 -1px 2px rgba(0, 252, 252, 0.5), 0 -45px 5px rgba(0, 252, 252, 0.15), 0 -2px 3px rgba(0, 252, 252, 0.5), 0 -3px 4px rgba(0, 252, 252, 0.5), 0 -4px 6px rgba(0, 252, 252, 0.5), 0 -5px 10px rgba(0, 252, 252, 0.75), 0 -7px 20px rgba(0, 252, 252, 0.75), 0 -10px 30px rgba(0, 252, 252, 0.75), 0 -15px 40px rgba(0, 252, 252, 0.75), 0 -25px 50px rgba(0, 252, 252, 0.75), 0 -35px 60px rgba(0, 252, 252, 0.85), 0 -45px 70px rgba(0, 252, 252, 0.95), 0 -65px 80px #00fcfc, 0 -75px 90px #00fcfc;
+  }
+  to {
+    will-change: unset;
+    box-shadow: 0 -1px 5px rgba(0, 252, 252, 0.15), 0 -1px 2px rgba(0, 252, 252, 0.5), 0 -1px 5px rgba(0, 252, 252, 0.15), 0 -2px 3px rgba(0, 252, 252, 0.5), 0 -3px 4px rgba(0, 252, 252, 0.5), 0 -4px 6px rgba(0, 252, 252, 0.5), 0 -5px 7px rgba(0, 252, 252, 0.75), 0 -7px 10px rgba(0, 252, 252, 0.75), 0 -10px 15px rgba(0, 252, 252, 0.75), 0 -15px 20px rgba(0, 252, 252, 0.75), 0 -25px 25px rgba(0, 252, 252, 0.75), 0 -35px 30px rgba(0, 252, 252, 0.85), 0 -45px 35px rgba(0, 252, 252, 0.95), 0 -65px 40px #00fcfc, 0 -75px 50px #00fcfc;
+  }
+}
 @keyframes holographic {
- from {
-  will-change: box-shadow;
-  box-shadow:
-  0 -75px 5px rgba($holo-color, .15),
-  0 -1px 2px rgba($holo-color, .5),
-  0 -45px 5px rgba($holo-color, .15),
-  0 -2px 3px rgba($holo-color, .5),
-  0 -3px 4px rgba($holo-color, .5),
-  0 -4px 6px rgba($holo-color, .5),
-  0 -5px 10px rgba($holo-color, .75),
-  0 -7px 20px rgba($holo-color, .75),
-  0 -10px 30px rgba($holo-color, .75),
-  0 -15px 40px rgba($holo-color, .75),
-  0 -25px 50px rgba($holo-color, .75),
-  0 -35px 60px rgba($holo-color, .85),
-  0 -45px 70px rgba($holo-color, .95),
-  0 -65px 80px rgba($holo-color, 1),
-  0 -75px 90px rgba($holo-color, 1),
-  ;
- } to {
-  will-change: unset;
-  box-shadow:
-  0 -1px 5px rgba($holo-color, .15),
-  0 -1px 2px rgba($holo-color, .5),
-  0 -1px 5px rgba($holo-color, .15),
-  0 -2px 3px rgba($holo-color, .5),
-  0 -3px 4px rgba($holo-color, .5),
-  0 -4px 6px rgba($holo-color, .5),
-  0 -5px 7px rgba($holo-color, .75),
-  0 -7px 10px rgba($holo-color, .75),
-  0 -10px 15px rgba($holo-color, .75),
-  0 -15px 20px rgba($holo-color, .75),
-  0 -25px 25px rgba($holo-color, .75),
-  0 -35px 30px rgba($holo-color, .85),
-  0 -45px 35px rgba($holo-color, .95),
-  0 -65px 40px rgba($holo-color, 1),
-  0 -75px 50px rgba($holo-color, 1),
-  ;
- }
+  from {
+    will-change: box-shadow;
+    box-shadow: 0 -75px 5px rgba(0, 252, 252, 0.15), 0 -1px 2px rgba(0, 252, 252, 0.5), 0 -45px 5px rgba(0, 252, 252, 0.15), 0 -2px 3px rgba(0, 252, 252, 0.5), 0 -3px 4px rgba(0, 252, 252, 0.5), 0 -4px 6px rgba(0, 252, 252, 0.5), 0 -5px 10px rgba(0, 252, 252, 0.75), 0 -7px 20px rgba(0, 252, 252, 0.75), 0 -10px 30px rgba(0, 252, 252, 0.75), 0 -15px 40px rgba(0, 252, 252, 0.75), 0 -25px 50px rgba(0, 252, 252, 0.75), 0 -35px 60px rgba(0, 252, 252, 0.85), 0 -45px 70px rgba(0, 252, 252, 0.95), 0 -65px 80px #00fcfc, 0 -75px 90px #00fcfc;
+  }
+  to {
+    will-change: unset;
+    box-shadow: 0 -1px 5px rgba(0, 252, 252, 0.15), 0 -1px 2px rgba(0, 252, 252, 0.5), 0 -1px 5px rgba(0, 252, 252, 0.15), 0 -2px 3px rgba(0, 252, 252, 0.5), 0 -3px 4px rgba(0, 252, 252, 0.5), 0 -4px 6px rgba(0, 252, 252, 0.5), 0 -5px 7px rgba(0, 252, 252, 0.75), 0 -7px 10px rgba(0, 252, 252, 0.75), 0 -10px 15px rgba(0, 252, 252, 0.75), 0 -15px 20px rgba(0, 252, 252, 0.75), 0 -25px 25px rgba(0, 252, 252, 0.75), 0 -35px 30px rgba(0, 252, 252, 0.85), 0 -45px 35px rgba(0, 252, 252, 0.95), 0 -65px 40px #00fcfc, 0 -75px 50px #00fcfc;
+  }
 }
