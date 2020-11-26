@@ -1,0 +1,65 @@
+<!-- outside -->
+ <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="f0" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="1"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="2" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="100" />
+    </filter>
+    <filter id="f1" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="1"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f2" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="2"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f3" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="3"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f4" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="4"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f5" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="5"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f6" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="6"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f7" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="7"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f8" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="8"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f9" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="9"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+    <filter id="f10" x="0" y="0">
+      <feTurbulence baseFrequency="0 0.5" type="fractalNoise" numOctaves="1" result="noise" seed="10"/>
+      <feGaussianBlur in="noise" result="blurred" stdDeviation="1" />
+      <feDisplacementMap in="SourceGraphic" in2="blurred" result="displaced" scale="10" />
+    </filter>
+  </defs>
+</svg>
+ <div class="filter">
+  <div class="card">
+  </div>
+ </div>
+<div class="holo"></div>
